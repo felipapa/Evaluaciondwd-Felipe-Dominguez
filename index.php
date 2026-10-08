@@ -22,12 +22,12 @@ $vehiculos = $consulta->fetchAll(PDO::FETCH_ASSOC);
 </head>
 <body>
     <a href="Registroform.html">Registrar</a>
-    <a href="iniciarsesion.html">Iniciar sesión</a>
+    <a href="iniciarsesion.html">Iniciar sesionn</a>
     <a href="logout.php">cerrar sesion</a>
 
     <?php if (isset($_SESSION["rol"]) && $_SESSION["rol"] === "admin"): ?>
         <p>
-            <a href="vehiculoform.html">Agregar vehículo</a>
+            <a href="vehiculoform.html">Agregar vehiculo</a>
         </p>
     <?php endif; ?>
 
