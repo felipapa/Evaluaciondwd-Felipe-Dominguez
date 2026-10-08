@@ -1,6 +1,5 @@
 <?php
 
-
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
@@ -32,6 +31,6 @@ $vehiculos = $consulta->fetch(PDO::FETCH_ASSOC);
     <label>descripcion</label>
     <input type="text" name="descripcion">
 
-    <button type="submit"></button>
+    <button type="submit">enviar</button>
 
 </form>
