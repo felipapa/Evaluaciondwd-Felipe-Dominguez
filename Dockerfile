@@ -13,7 +13,7 @@ RUN apt-get update && apt-get install -y mariadb-server \
     && docker-php-ext-enable pdo_mysql mysqli \
     && rm -rf /var/lib/apt/lists/*
 
-# 3. Copia los archivos de tu proyecto
+# 3. Copia los archivos de tu proyecto (incluyendo database.sql)
 COPY . /var/www/html/
 
 # 4. Habilita mod_rewrite de Apache
@@ -21,8 +21,9 @@ RUN a2enmod rewrite
 
 EXPOSE 80
 
-# 5. Script de arranque: inicia MariaDB, configura el usuario/base de datos y arranca Apache
+# 5. Inicia MariaDB, crea la base, importa database.sql y arranca Apache
 CMD service mariadb start && \
     mysql -e "CREATE DATABASE IF NOT EXISTS ${DB_NAME};" && \
+    mysql -f ${DB_NAME} < /var/www/html/database.sql && \
     mysql -e "ALTER USER 'root'@'localhost' IDENTIFIED BY '${DB_PASS}'; FLUSH PRIVILEGES;" && \
     apache2-foreground
