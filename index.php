@@ -27,7 +27,7 @@ $vehiculos = $consulta->fetchAll(PDO::FETCH_ASSOC);
 
     <?php if (isset($_SESSION["rol"]) && $_SESSION["rol"] === "admin"): ?>
         <p>
-            <a href="vehiculoform.html">Agregar vehiculo</a>
+            <a href="vehiculoform.html">agregar vehiculo</a>
         </p>
     <?php endif; ?>
 

@@ -1,7 +1,6 @@
 <?php
 
 require "conexion.php";
-require "auth.php";
 
 
 $marca = $_POST["marca"];
